@@ -1,0 +1,6 @@
+#!/bin/sh
+BASEDIR=$(dirname $0)
+if [ ! -d "$BASEDIR/node_modules" ]; then
+	npm install $BASEDIR
+fi
+$BASEDIR/node_modules/grunt-cli/bin/grunt --gruntfile "$BASEDIR/Gruntfile.js" run-chrome

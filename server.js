@@ -1,11 +1,8 @@
-var static = require('node-static');
+var express = require('express');
+var app = express();
+var path = require('path');
 
-var file = new(static.Server)('./web');
+app.use(express.static(path.join(__dirname, 'web')));
 
-require('http').createServer(function (request, response) {
-    request.addListener('end', function () {
-        file.serve(request, response);
-    }).resume();
-}).listen(8080);
-
-console.log("Listening on localhost:8080");
+app.listen(8080);
+console.log('Listening on port 8080');

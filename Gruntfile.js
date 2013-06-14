@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('preview', ['default', 'parallel:preview']);
 
-  grunt.registerTask('chrome', "Run as Chrome packaged app", function(){
+  grunt.registerTask('chrome', "Run as Chrome app", function(){
     grunt.util.spawn({
       cmd: "google-chrome",
       args: ["--app=http://localhost:8080"]
