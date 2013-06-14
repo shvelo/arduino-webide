@@ -28,6 +28,8 @@
   },
   "dependencies": {
     "express": "*",
+    "socket.io": "*",
+    "serialport": "*",
     "grunt": "*",
     "grunt-cli": "*",
     "grunt-parallel": "*"
