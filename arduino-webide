@@ -1,5 +1,6 @@
 #!/bin/sh
-BASEDIR=$(dirname $0)
+ABSPATH=$(readlink $0)
+BASEDIR=$(dirname $ABSPATH)
 if [ ! -d "$BASEDIR/node_modules" ]; then
 	npm install $BASEDIR
 fi

@@ -18,6 +18,7 @@
     "grunt": "./node_modules/grunt-cli/bin/grunt"
   },
   "main": "arduino-webide",
+  "bin": { "arduino-webide" : "./arduino-webide" },
   "directories": [
     "web"
   ],
