@@ -31,6 +31,8 @@
     "grunt-cli": "*",
     "grunt-contrib-less": "*",
     "grunt-contrib-jade": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-parallel": "*",
     "node-static": "*",
     "jade": "*"
   }
