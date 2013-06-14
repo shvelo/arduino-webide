@@ -17,6 +17,12 @@ body {
 #app {
   height: 100%;
 }
+#app #toolbar .nav {
+  font-size: 16pt;
+}
+#app #toolbar .nav .button-upload {
+  color: #70f16b;
+}
 #app #container {
   padding-top: 50px;
   height: 100%;
