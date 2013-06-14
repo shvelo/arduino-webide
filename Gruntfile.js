@@ -39,6 +39,20 @@ module.exports = function(grunt) {
             args: "watch"
           }
         ]
+      },
+      chrome: {
+        tasks: [
+          {
+            grunt: true,
+            args: "server"
+          }, {
+            grunt: true,
+            args: "watch"
+          }, {
+            grunt: true,
+            args: "chrome"
+          }
+        ]
       }
     }
   });
@@ -56,4 +70,13 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('preview', ['default', 'parallel:preview']);
+
+  grunt.registerTask('chrome', "Run as Chrome packaged app", function(){
+    grunt.util.spawn({
+      cmd: "google-chrome",
+      args: ["--app=http://localhost:8080"]
+    })
+  });
+
+  grunt.registerTask('run-chrome', ['default', 'parallel:chrome']);
 };
