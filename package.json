@@ -29,9 +29,9 @@
     "less": "*",
     "grunt": "*",
     "grunt-cli": "*",
-    "grunt-contrib-less": "*"
-  },
-  "devDependencies": {
-    "grunt-contrib-less": "~0.6.1"
+    "grunt-contrib-less": "*",
+    "grunt-contrib-jade": "*",
+    "node-static": "*",
+    "jade": "*"
   }
 }
