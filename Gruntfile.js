@@ -40,7 +40,7 @@ module.exports = function(grunt) {
           }
         ]
       },
-      chrome: {
+      chromePreview: {
         tasks: [
           {
             grunt: true,
@@ -50,7 +50,18 @@ module.exports = function(grunt) {
             args: "watch"
           }, {
             grunt: true,
-            args: "chrome"
+            args: "chrome-base"
+          }
+        ]
+      },
+      chrome: {
+        tasks: [
+          {
+            grunt: true,
+            args: "server"
+          }, {
+            grunt: true,
+            args: "chrome-base"
           }
         ]
       }
@@ -71,12 +82,43 @@ module.exports = function(grunt) {
 
   grunt.registerTask('preview', ['default', 'parallel:preview']);
 
-  grunt.registerTask('chrome', "Run as Chrome app", function(){
+  grunt.registerTask('chrome-base', "Run as Chrome app", function(){
+    var isWin = !!process.platform.match(/^win/);
+    var cmd;
+
+    if(isWin) {
+      cmd = "start chrome";
+    } else {
+      var execSync;
+      try {
+        execSync = require("exec-sync");
+      } catch(er) {
+        execSync = null;
+      }
+
+      if(execSync != null) {
+        if(execSync("which google-chrome") == "") {
+          if(execSync("which chromium") == "") {
+            grunt.log.writeln("Neither Chrome or Chromium are found!");
+            return false;
+          } else {
+            cmd = "chromium";
+          }
+        } else {
+          cmd = "google-chrome";
+        }
+      } else {
+        cmd = "google-chrome";
+      }
+    }
+
     grunt.util.spawn({
       cmd: "google-chrome",
       args: ["--app=http://localhost:8080"]
-    })
+    });
   });
 
-  grunt.registerTask('run-chrome', ['default', 'parallel:chrome']);
+  grunt.registerTask('chrome', ['parallel:chrome']);
+
+  grunt.registerTask('chrome-preview', ['default', 'parallel:chromePreview']);
 };

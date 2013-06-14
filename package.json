@@ -38,5 +38,8 @@
     "grunt-contrib-jade": "*",
     "grunt-contrib-watch": "*",
     "grunt-parallel": "*"
+  },
+  "optionalDependencies": {
+    "exec-sync": "*"
   }
 }
