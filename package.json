@@ -26,14 +26,16 @@
     "url": "https://github.com/shvelo/arduino-webide.git"
   },
   "dependencies": {
+    "node-static": "*"
+  },
+  "devDependencies": {
     "less": "*",
+    "jade": "*",
     "grunt": "*",
     "grunt-cli": "*",
     "grunt-contrib-less": "*",
     "grunt-contrib-jade": "*",
     "grunt-contrib-watch": "*",
-    "grunt-parallel": "*",
-    "node-static": "*",
-    "jade": "*"
+    "grunt-parallel": "*"
   }
 }
