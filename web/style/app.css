@@ -33,6 +33,17 @@ body {
 #app #toolbar .nav.buttons .button-upload:hover {
   color: #70f16b;
 }
+#app #toolbar ul.dropdown-menu {
+  padding: 0;
+  border-radius: 0;
+}
+#app #toolbar ul.dropdown-menu a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#app #toolbar ul.dropdown-menu a:hover {
+  background: #454545;
+}
 #app #container {
   padding-top: 50px;
   height: 100%;
