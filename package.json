@@ -27,15 +27,15 @@
     "url": "https://github.com/shvelo/arduino-webide.git"
   },
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-parallel": "*"
   },
   "devDependencies": {
     "less": "*",
-    "grunt": "*",
-    "grunt-cli": "*",
     "grunt-contrib-less": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-parallel": "*"
+    "grunt-contrib-watch": "*"
   },
   "optionalDependencies": {
     "exec-sync": "*"
