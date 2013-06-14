@@ -31,11 +31,9 @@
   },
   "devDependencies": {
     "less": "*",
-    "jade": "*",
     "grunt": "*",
     "grunt-cli": "*",
     "grunt-contrib-less": "*",
-    "grunt-contrib-jade": "*",
     "grunt-contrib-watch": "*",
     "grunt-parallel": "*"
   },

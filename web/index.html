@@ -8,9 +8,23 @@
     <script src="lib/angular.js"></script>
   </head>
   <body ng-app>
-    <h1>Soon!</h1>
+    <div id="app">
+      <div class="toolbar navbar navbar-fixed-top">
+        <a href class="navbar-brand">Arduino WebIDE</a>
+        <ul class="nav navbar-nav">
+          <li><a href="#"><i class="icon-save icon-big"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="container" id="container">
+        <div id="code"></div>
+      </div>
+    </div>
+
     <script src="lib/jquery-2.0.2.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="lib/codemirror/lib/codemirror.js"></script>
+     <script src="lib/codemirror/mode/clike/clike.js"></script>
     <script src="script/app.js"></script>
   </body>
 </html>

@@ -13,19 +13,8 @@ module.exports = function(grunt) {
         }
       }
     },
-    jade: {
-      compile: {
-        options: {
-          debug: false,
-          pretty: true
-        },
-        files: {
-          "web/index.html": "web/index.html.jade"
-        }
-      }
-    },
     watch: {
-      files: ['web/index.html.jade', 'web/style/app.less'],
+      files: ['web/style/app.less'],
       tasks: ['default']
     },
     parallel: {
@@ -69,11 +58,10 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-parallel');
 
-  grunt.registerTask('default', ['less', 'jade']);
+  grunt.registerTask('default', ['less']);
 
   grunt.registerTask('server', "Run a server", function() {
     this.async();

@@ -1,2 +1,37 @@
 @import url("../lib/bootstrap/css/bootstrap.css");
 @import url("../lib/font-awesome/css/font-awesome.css");
+@import url("../lib/codemirror/lib/codemirror.css");
+@import url("../lib/codemirror/theme/solarized.css");
+
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+* {
+	outline: none !important;
+}
+
+#app {
+	height: 100%;
+	#container {
+		padding-top: 50px;
+		height: 100%;
+		max-width: 100%;
+
+		#code {
+			height: 100%;
+
+			.CodeMirror {
+				height: 100%;
+
+				.CodeMirror-scroll {
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
