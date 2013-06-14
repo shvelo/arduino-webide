@@ -4,5 +4,5 @@ var path = require('path');
 
 app.use(express.static(path.join(__dirname, 'web')));
 
-app.listen(8080);
-console.log('Listening on port 8080');
+app.listen(4000);
+console.log('Listening on port 4000');

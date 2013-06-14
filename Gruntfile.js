@@ -71,12 +71,14 @@ module.exports = function(grunt) {
   grunt.registerTask('preview', ['default', 'parallel:preview']);
 
   grunt.registerTask('chrome-base', "Run as Chrome app", function(){
-    var isWin = !!process.platform.match(/^win/);
-    var cmd;
+    var isWin = require('os').platform().match(/^win/);
+    var cmd, args;
 
     if(isWin) {
-      cmd = "start chrome";
+      cmd = "start";
+      args = ["chrome", "--app=http://localhost:4000"]
     } else {
+      args = ["--app=http://localhost:4000"]
       var execSync;
       try {
         execSync = require("exec-sync");
@@ -100,10 +102,9 @@ module.exports = function(grunt) {
       }
     }
 
-    grunt.util.spawn({
-      cmd: "google-chrome",
-      args: ["--app=http://localhost:8080"]
-    });
+    var exec = require('child_process').exec;
+
+    exec([cmd, args.join(" ")].join(" "), function(){});
   });
 
   grunt.registerTask('chrome', ['parallel:chrome']);
