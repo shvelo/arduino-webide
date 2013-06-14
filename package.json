@@ -1,20 +1,37 @@
 {
-	"name" : "arduino-webide",
-	"version" : "v0.1.1",
-	"description" : "Arduino IDE for the web",
-	"keywords" : ["arduino", "ide", "socket"],
-	"homepage" : "https://github.com/shvelo/arduino-webide",
-	"bugs" : "https://github.com/shvelo/arduino-webide/issues",
-	"license" : "WTFPL",
-	"author" : "Nick Shvelidze <shveloo@gmail.com> (http://nicksh.com/)",
-	"files" : ["."],
-	"main" : "arduino-webide",
-	"directories" : ["web"],
-	"repository" : {
-		"type" : "git",
-		"url" : "https://github.com/shvelo/arduino-webide.git"
-	},
-	"dependencies" : {
-		"less" : "*"
-	}
+  "name": "arduino-webide",
+  "version": "v0.1.1",
+  "description": "Arduino IDE for the web",
+  "keywords": [
+    "arduino",
+    "ide",
+    "socket"
+  ],
+  "homepage": "https://github.com/shvelo/arduino-webide",
+  "bugs": "https://github.com/shvelo/arduino-webide/issues",
+  "license": "WTFPL",
+  "author": "Nick Shvelidze <shveloo@gmail.com> (http://nicksh.com/)",
+  "files": [
+    "."
+  ],
+  "scripts": {
+    "grunt": "./node_modules/grunt-cli/bin/grunt"
+  },
+  "main": "arduino-webide",
+  "directories": [
+    "web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shvelo/arduino-webide.git"
+  },
+  "dependencies": {
+    "less": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-less": "*"
+  },
+  "devDependencies": {
+    "grunt-contrib-less": "~0.6.1"
+  }
 }
