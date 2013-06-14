@@ -11,8 +11,7 @@
   <body ng-app>
     <div id="app">
       <div class="navbar navbar-fixed-top" id="toolbar">
-        <a href class="navbar-brand">Arduino WebIDE</a>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav buttons">
           <li>
             <a href="#" class="button-new">
               <i class="icon-file"></i>
@@ -31,10 +30,37 @@
             </a>
           </li>
         </ul>
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Theme <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" id="theme-selector">
+              <li><a href="#" data-theme="solarized dark">Solarized Dark</a></li>
+              <li><a href="#" data-theme="solarized light">Solarized Light</a></li>
+              <li><a href="#" data-theme="ambiance">Ambiance</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
 
       <div class="container" id="container">
-        <div id="code"></div>
+        <div class="row">
+          <div class="col-3" id="sidebar">
+            <div class="sidebar-title">
+              Sidebar
+            </div>
+            <div class="sidebar">
+              <ul>
+                <li class="active"><i class="icon icon-folder-open"></i> Folder</li>
+                <li class="sub">File</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-9" id="code">
+            <div></div>
+          </div>
+        </div>
       </div>
     </div>
 

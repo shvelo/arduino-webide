@@ -2,7 +2,7 @@
 @import url("../lib/font-awesome/css/font-awesome.css");
 @import url("../lib/codemirror/lib/codemirror.css");
 @import url("../lib/codemirror/theme/solarized.css");
-
+@import url("../lib/codemirror/theme/ambiance.css");
 
 html, body {
 	margin: 0;
@@ -17,11 +17,19 @@ html, body {
 #app {
 	height: 100%;
 	#toolbar {
-		.nav {
+		.nav.buttons {
 			font-size: 16pt;
 
+			a {
+				transition: color .5s;
+			}
+
 			.button-upload {
-				color: rgb(112, 241, 107);
+				color: rgb(130, 219, 126);
+
+				&:hover {
+					color: rgb(112, 241, 107);
+				}
 			}
 		}
 	}
@@ -30,14 +38,64 @@ html, body {
 		height: 100%;
 		max-width: 100%;
 
+		.row {
+			height: 100%;
+			margin: 0;
+
+			& > div {
+				height: 100%;
+				padding: 0;
+			}
+		}
+
+		#sidebar {
+			.sidebar-title {
+				background: #3e3e3e;
+				color: white;
+				padding: 10px;
+				font-weight: bold;
+			}
+
+			.sidebar {
+				ul {
+					list-style: none;
+					padding: 0;
+					margin: 0;
+
+					li {
+						padding: 10px;
+						padding-top: 5px;
+						padding-bottom: 5px;
+						transition: background-color .5s;
+						cursor: pointer;
+
+						&.sub {
+							padding-left: 30px;
+						}
+
+						&:hover {
+							background: rgb(224, 224, 224);
+						}
+					}
+				}
+			}
+		}
+
 		#code {
 			height: 100%;
 
-			.CodeMirror {
+			& > div {
 				height: 100%;
 
-				.CodeMirror-scroll {
-					padding-bottom: 0;
+				.CodeMirror {
+					height: 100%;
+					padding-top: 15px;
+					padding-left: 15px;
+					padding-right: 15px;
+
+					.CodeMirror-scroll {
+						padding-bottom: 0;
+					}
 				}
 			}
 		}

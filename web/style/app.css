@@ -5,6 +5,8 @@
 @import url("../lib/codemirror/lib/codemirror.css");
 
 @import url("../lib/codemirror/theme/solarized.css");
+
+@import url("../lib/codemirror/theme/ambiance.css");
 html,
 body {
   margin: 0;
@@ -17,10 +19,16 @@ body {
 #app {
   height: 100%;
 }
-#app #toolbar .nav {
+#app #toolbar .nav.buttons {
   font-size: 16pt;
 }
-#app #toolbar .nav .button-upload {
+#app #toolbar .nav.buttons a {
+  transition: color .5s;
+}
+#app #toolbar .nav.buttons .button-upload {
+  color: #82db7e;
+}
+#app #toolbar .nav.buttons .button-upload:hover {
   color: #70f16b;
 }
 #app #container {
@@ -28,12 +36,50 @@ body {
   height: 100%;
   max-width: 100%;
 }
+#app #container .row {
+  height: 100%;
+  margin: 0;
+}
+#app #container .row > div {
+  height: 100%;
+  padding: 0;
+}
+#app #container #sidebar .sidebar-title {
+  background: #3e3e3e;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+#app #container #sidebar .sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#app #container #sidebar .sidebar ul li {
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition: background-color 0.5s;
+  cursor: pointer;
+}
+#app #container #sidebar .sidebar ul li.sub {
+  padding-left: 30px;
+}
+#app #container #sidebar .sidebar ul li:hover {
+  background: #e0e0e0;
+}
 #app #container #code {
   height: 100%;
 }
-#app #container #code .CodeMirror {
+#app #container #code > div {
   height: 100%;
 }
-#app #container #code .CodeMirror .CodeMirror-scroll {
+#app #container #code > div .CodeMirror {
+  height: 100%;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#app #container #code > div .CodeMirror .CodeMirror-scroll {
   padding-bottom: 0;
 }
