@@ -72,7 +72,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('chrome-base', "Run as Chrome app", function(){
     var cmd;
-    args = " --app=http://localhost:4000"
+    args = " --app=http://localhost:4000";
     var execSync;
     try {
       execSync = require("exec-sync");
@@ -94,12 +94,11 @@ module.exports = function(grunt) {
     } else {
       cmd = "google-chrome";
     }
-  }
 
-  var exec = require('child_process').exec;
+    var exec = require('child_process').exec;
 
-  exec(cmd + args, function(){});
-});
+    exec(cmd + args, function(){});
+  });
 
   grunt.registerTask('chrome', ['parallel:chrome']);
 
