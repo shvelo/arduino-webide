@@ -1,3 +1,13 @@
+function htmlEncode(value){
+  //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+  //then grab the encoded contents back out.  The div never exists on the page.
+  return $('<div/>').text(value).html();
+}
+
+function htmlDecode(value){
+  return $('<div/>').html(value).text();
+}
+
 $(function() {
 	var codeEditor;
 
@@ -12,6 +22,7 @@ $(function() {
 	}
 
 	var port = "";
+	var rate = 19200;
 
 	var setPort = function(selectedPort) {
 		$("#port-selector li").removeClass("active");
@@ -56,6 +67,12 @@ $(function() {
 		setPort($(this).data("port"));
 	});
 
+	$("#rate-selector").on('click', 'li', function(){
+		$("#rate-selector li").removeClass('active');
+		$(this).addClass("active");
+		rate = $(this).data("rate");
+	});
+
 	$("#serial-terminal .toggle").click(function(){
 		$("#serial-terminal").toggleClass("active");
 		if($("#serial-terminal").is(".active")) {
@@ -67,7 +84,7 @@ $(function() {
 
 	socket.on('serial-output', function(data) {
 		console.log(data);
-		$("#serial-terminal .output").append(data.data);
+		$("#serial-terminal .output").append(data.data + "<i></i>");
 	});
 
 	$("#serial-terminal .input").keydown(function(e) {
