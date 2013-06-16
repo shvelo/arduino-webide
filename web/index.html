@@ -33,14 +33,22 @@
         <ul class="nav navbar-nav pull-right">
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <span id="port">Port</span> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" id="port-selector">
+              
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               Theme <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" id="theme-selector">
-              <li><a href="#" data-theme="solarized dark">Solarized Dark</a></li>
-              <li><a href="#" data-theme="solarized light">Solarized Light</a></li>
-              <li><a href="#" data-theme="ambiance">Ambiance</a></li>
-              <li><a href="#" data-theme="elegant">Elegant</a></li>
-              <li><a href="#" data-theme="default">Default</a></li>
+              <li data-theme="solarized dark"><a href="#">Solarized Dark</a></li>
+              <li data-theme="solarized light"><a href="#">Solarized Light</a></li>
+              <li data-theme="ambiance"><a href="#">Ambiance</a></li>
+              <li data-theme="elegant"><a href="#">Elegant</a></li>
+              <li data-theme="default"><a href="#">Default</a></li>
             </ul>
           </li>
         </ul>
@@ -64,12 +72,22 @@
           </div>
         </div>
       </div>
+
+      <div id="serial-terminal">
+        <div class="toggle">Serial Terminal</div>
+        <div class="terminal">
+          <pre class="output"></pre>
+          <pre class="input" contenteditable></pre>
+          <div class="input-caret">&gt;</div>
+        </div>
+      </div>
     </div>
 
     <script src="lib/jquery-2.0.2.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/codemirror/lib/codemirror.js"></script>
-     <script src="lib/codemirror/mode/clike/clike.js"></script>
+    <script src="lib/codemirror/mode/clike/clike.js"></script>
+    <script src="http://localhost:4001/socket.io/socket.io.js"></script>
     <script src="script/app.js"></script>
   </body>
 </html>

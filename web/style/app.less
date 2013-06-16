@@ -46,6 +46,10 @@ html, body {
 					background: #454545;
 				}
 			}
+
+			.active a {
+				background: #353535;
+			}
 		}
 	}
 	#container {
@@ -112,6 +116,66 @@ html, body {
 						padding-bottom: 0;
 					}
 				}
+			}
+		}
+	}
+
+	@terminal_height: 200px;
+
+	#serial-terminal {
+		position: fixed;
+		z-index: 899;
+		bottom: -@terminal_height;
+		left: 0;
+		width: 100%;
+		height: @terminal_height + 40px;
+		transition: 1s;
+		background: white;
+
+		&.active {
+			bottom: 0;
+		}
+
+		.toggle {
+			background: #cccccc;
+			height: 40px;
+			line-height: 40px;
+			padding-left: 20px;
+			font-size: 110%;
+			cursor: pointer;
+			transition: .5s;
+
+			&:hover {
+				background: #dddddd;
+			}
+		}
+
+		.terminal {
+			.output {
+				margin: 0;
+				height: @terminal_height - 30px;
+				overflow: auto;
+				line-height: 20px;
+				padding-left: 20px;
+			}
+
+			.input {
+				padding-left: 20px;
+				margin: 0;
+				height: 30px;
+				overflow: auto;
+				line-height: 30px;
+				background: #dddddd;
+			}
+
+			.input-caret {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 20px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
 			}
 		}
 	}

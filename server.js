@@ -1,25 +1,45 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var io = require('socket.io').listen(80);
-var SerialPort = require("serialport").SerialPort;
+var fs = require('fs');
+var io = require('socket.io').listen(4001);
+var serialport = require("serialport");
+var SerialPort = serialport.SerialPort;
 var serial;
 
 io.sockets.on('connection', function (socket) {
 	socket.on('serial-connect', function (data) {
+		console.log("Connecting to serial "+ data.port +" at rate "+ data.rate);
 		serial = new SerialPort(data.port, {
 			baudrate: data.rate
 		});
 		serial.on("open", function () {
-			serialPort.on('data', function(data) {
+			serial.on('data', function(data) {
 				socket.emit('serial-output', { data : data });
 			});
 			socket.emit('serial-connected', {});
 		});
 	});
+	socket.on('disconnect', function() {
+		if(serial) {
+			console.log("Disconnecting serial");
+			serial.close();
+		}
+	});
+	socket.on('serial-disconnect', function() {
+		if(serial) {
+			console.log("Disconnecting serial");
+			serial.close();
+		}
+	});
 	socket.on('serial-input', function (data) {
 		if(serial) serial.write(data.data, function(err, results) {
 			socket.emit('serial-result', { err: err, results: results})
+		});
+	});
+	socket.on('serial-list', function() {
+		serialport.list(function (err, ports) {
+			socket.emit('serial-ports', { ports: ports });
 		});
 	});
 });

@@ -44,6 +44,9 @@ body {
 #app #toolbar ul.dropdown-menu a:hover {
   background: #454545;
 }
+#app #toolbar ul.dropdown-menu .active a {
+  background: #353535;
+}
 #app #container {
   padding-top: 50px;
   height: 100%;
@@ -95,4 +98,53 @@ body {
 }
 #app #container #code > div .CodeMirror .CodeMirror-scroll {
   padding-bottom: 0;
+}
+#app #serial-terminal {
+  position: fixed;
+  z-index: 899;
+  bottom: -200px;
+  left: 0;
+  width: 100%;
+  height: 240px;
+  transition: 1s;
+  background: white;
+}
+#app #serial-terminal.active {
+  bottom: 0;
+}
+#app #serial-terminal .toggle {
+  background: #cccccc;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 20px;
+  font-size: 110%;
+  cursor: pointer;
+  transition: .5s;
+}
+#app #serial-terminal .toggle:hover {
+  background: #dddddd;
+}
+#app #serial-terminal .terminal .output {
+  margin: 0;
+  height: 170px;
+  overflow: auto;
+  line-height: 20px;
+  padding-left: 20px;
+}
+#app #serial-terminal .terminal .input {
+  padding-left: 20px;
+  margin: 0;
+  height: 30px;
+  overflow: auto;
+  line-height: 30px;
+  background: #dddddd;
+}
+#app #serial-terminal .terminal .input-caret {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
 }
